@@ -30,5 +30,13 @@
         app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp" android:layout_marginTop="24dp"
         app:layout_constraintTop_toBottomOf="@+id/classify_button"/>
 
+    <Button
+        android:id="@+id/record_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Record"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="261dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

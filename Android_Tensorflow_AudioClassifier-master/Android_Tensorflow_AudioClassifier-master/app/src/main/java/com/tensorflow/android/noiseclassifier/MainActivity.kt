@@ -1,5 +1,7 @@
 package com.tensorflow.android.noiseclassifier
 
+import android.location.Location
+import android.media.MediaRecorder
 import android.os.Bundle
 import android.os.Environment
 import android.text.TextUtils
@@ -24,10 +26,12 @@ import org.tensorflow.lite.support.label.TensorLabel
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.File
 import java.io.IOException
+import java.io.PrintWriter
 import java.math.RoundingMode
 import java.nio.ByteBuffer
 import java.nio.MappedByteBuffer
 import java.text.DecimalFormat
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -65,7 +69,37 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        val sd = File(audioDirPath + "/NewAudio.txt")
+        //val fd = File(audioDirPath + "/NewAudio")
 
+        //var mediaRecorder = MediaRecorder()
+
+        //mediaRecorder?.setAudioSource(MediaRecorder.AudioSource.MIC)
+        //mediaRecorder?.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
+        //mediaRecorder?.setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
+        //mediaRecorder?.setOutputFile(audioDirPath + "/NewAudio")
+
+        record_button.setOnClickListener( View.OnClickListener {
+            var location = Location("me")
+
+            var message = "";
+            if (record_button.text == "Record"){
+                message+= "Starting Recording\n"
+                message += SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Date());
+                message += "\n" + location.latitude.toString() + "\n" + location.longitude.toString() + "\n"
+                record_button.text = "Recording";
+                //mediaRecorder?.prepare()
+                //mediaRecorder?.start()
+            } else {
+                record_button.text = "Record";
+                message+= "Stop Recording\n"
+                //mediaRecorder.stop()
+                //mediaRecorder.release()
+            }
+            sd.appendText(message)
+            println(message)
+
+        })
 
         classify_button.setOnClickListener( View.OnClickListener {
             val selFilePath = spinner.selectedItem.toString()
