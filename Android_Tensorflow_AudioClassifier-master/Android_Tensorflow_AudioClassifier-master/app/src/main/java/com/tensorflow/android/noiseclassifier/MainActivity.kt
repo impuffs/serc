@@ -1,9 +1,15 @@
 package com.tensorflow.android.noiseclassifier
 
 import android.location.Location
+import android.media.AudioFormat
+import android.media.AudioManager
+import android.media.AudioRecord
 import android.media.MediaRecorder
 import android.os.Bundle
 import android.os.Environment
+import android.os.Handler
+import android.os.Looper
+import android.provider.MediaStore
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
@@ -15,7 +21,6 @@ import com.ml.quaterion.noiseClassification.Recognition
 import com.tensorflow.android.audio.features.MFCC
 import com.tensorflow.android.audio.features.WavFile
 import com.tensorflow.android.audio.features.WavFileException
-import com.tensorflow.android.noiseclassifier.R
 import kotlinx.android.synthetic.main.activity_main.*
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.Interpreter
@@ -26,7 +31,6 @@ import org.tensorflow.lite.support.label.TensorLabel
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.File
 import java.io.IOException
-import java.io.PrintWriter
 import java.math.RoundingMode
 import java.nio.ByteBuffer
 import java.nio.MappedByteBuffer
@@ -43,11 +47,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        Log.d("myTag", Environment.getExternalStorageDirectory().toString())
 
         //  val languages = resources.getStringArray(R.array.Languages)
+
         val externalStorage: File = Environment.getExternalStorageDirectory()
 
         val audioDirPath = externalStorage.absolutePath + "/audioData";
+        val directory = File(audioDirPath)
+        Log.d("myTag", directory.mkdir().toString())
 
         val fileNames: MutableList<String> = ArrayList()
 
@@ -71,25 +79,29 @@ class MainActivity : AppCompatActivity() {
 
         val sd = File(audioDirPath + "/NewAudio.txt")
         //val fd = File(audioDirPath + "/NewAudio")
-
-        //var mediaRecorder = MediaRecorder()
-
-        //mediaRecorder?.setAudioSource(MediaRecorder.AudioSource.MIC)
-        //mediaRecorder?.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
-        //mediaRecorder?.setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
-        //mediaRecorder?.setOutputFile(audioDirPath + "/NewAudio")
+        //Another Change
+        val bufferSize = 8192
+        val x = 9
+        Log.d("myTag", MediaRecorder.AudioSource.MIC.toString())
+        val aformat = AudioFormat.Builder().setSampleRate(32000).setEncoding(AudioFormat.ENCODING_PCM_16BIT).setChannelMask(AudioFormat.CHANNEL_IN_MONO).build();
+        val audioRecorder = AudioRecord.Builder().setBufferSizeInBytes(bufferSize).setAudioFormat(aformat).setAudioSource(MediaRecorder.AudioSource.MIC).build()
 
         record_button.setOnClickListener( View.OnClickListener {
             var location = Location("me")
 
             var message = "";
+            var data = ByteArray(bufferSize)
             if (record_button.text == "Record"){
+
                 message+= "Starting Recording\n"
                 message += SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Date());
                 message += "\n" + location.latitude.toString() + "\n" + location.longitude.toString() + "\n"
                 record_button.text = "Recording";
-                //mediaRecorder?.prepare()
-                //mediaRecorder?.start()
+                audioRecorder.startRecording()
+
+                audioRecorder.read(data,0,bufferSize)
+                message+= data.toString()
+
             } else {
                 record_button.text = "Record";
                 message+= "Stop Recording\n"
@@ -305,6 +317,34 @@ class MainActivity : AppCompatActivity() {
             recognitions.add(pq.poll())
         }
         return recognitions
+    }
+
+    protected fun startRecording( recorder: AudioRecord, bufferSize: Int): Any? {
+//        final int[] v = new int[] {R.id.buttonAck, R.id.buttonGo, R.id.buttonStanddown, R.id.buttonComplete};
+        val x = 0
+        recorder.startRecording()
+
+            val data = ByteArray(bufferSize)
+            try {
+                val start = System.currentTimeMillis()
+                //                final int i = v[x];
+                val h = Handler(Looper.getMainLooper())
+                h.post(object : Runnable {
+                    override fun run() {
+//                        receiver.receive(i);
+                        val read = recorder.read(data, 0, data.size)
+                        Log.i(
+                            "myTag",
+                            String.format("Read in Data: %d", read)
+                        )
+                    }
+                })
+                //                x = (x + 1) % v.length;
+                Thread.sleep(200)
+            } catch (e: Exception) {
+
+            }
+        return null
     }
 
 }
