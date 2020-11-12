@@ -40,7 +40,7 @@ import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
-    protected  class myRecorder : Thread(){
+    class MyRecorder : Thread(){
         private val bufferSize = 8192
         private val aformat = AudioFormat.Builder().setSampleRate(32000).setEncoding(AudioFormat.ENCODING_PCM_16BIT).setChannelMask(AudioFormat.CHANNEL_IN_MONO).build();
         private val audioRecorder = AudioRecord.Builder().setBufferSizeInBytes(bufferSize).setAudioFormat(aformat).setAudioSource(MediaRecorder.AudioSource.MIC).build();
@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity() {
         val mappingFile = File(audioDirPath + "/MappingFile.csv")
         //Another Change
 
-        var recorder = myRecorder();
+        var recorder = MyRecorder();
 
         record_button.setOnClickListener( View.OnClickListener {
             try {
