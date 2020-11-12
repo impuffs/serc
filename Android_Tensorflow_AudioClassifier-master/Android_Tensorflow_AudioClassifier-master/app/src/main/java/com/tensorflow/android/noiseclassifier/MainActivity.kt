@@ -1,14 +1,12 @@
 package com.tensorflow.android.noiseclassifier
 
+import android.content.Context
 import android.location.Location
 import android.media.AudioFormat
 import android.media.AudioManager
 import android.media.AudioRecord
 import android.media.MediaRecorder
-import android.os.Bundle
-import android.os.Environment
-import android.os.Handler
-import android.os.Looper
+import android.os.*
 import android.provider.MediaStore
 import android.text.TextUtils
 import android.util.Log
@@ -42,6 +40,28 @@ import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
+    protected  class myRecorder : Thread(){
+        private val bufferSize = 8192
+        private val aformat = AudioFormat.Builder().setSampleRate(32000).setEncoding(AudioFormat.ENCODING_PCM_16BIT).setChannelMask(AudioFormat.CHANNEL_IN_MONO).build();
+        private val audioRecorder = AudioRecord.Builder().setBufferSizeInBytes(bufferSize).setAudioFormat(aformat).setAudioSource(MediaRecorder.AudioSource.MIC).build();
+        var x = 0
+        //comment
+        fun run(filename: File){
+            var data = ByteArray(bufferSize);
+
+            audioRecorder.startRecording();
+
+            audioRecorder.read(data,0,bufferSize);
+
+            filename.writeBytes(data);
+            if (x >= 3){
+                Log.d("myTag", "REMEMBER WE ONLY RAN 3 TIMES");
+                return;
+            }
+            x = x + 1;
+
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,39 +97,32 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        val sd = File(audioDirPath + "/NewAudio.txt")
-        //val fd = File(audioDirPath + "/NewAudio")
+
+        val mappingFile = File(audioDirPath + "/MappingFile.csv")
         //Another Change
-        val bufferSize = 8192
-        val x = 9
-        Log.d("myTag", MediaRecorder.AudioSource.MIC.toString())
-        val aformat = AudioFormat.Builder().setSampleRate(32000).setEncoding(AudioFormat.ENCODING_PCM_16BIT).setChannelMask(AudioFormat.CHANNEL_IN_MONO).build();
-        val audioRecorder = AudioRecord.Builder().setBufferSizeInBytes(bufferSize).setAudioFormat(aformat).setAudioSource(MediaRecorder.AudioSource.MIC).build()
+
+        var recorder = myRecorder();
 
         record_button.setOnClickListener( View.OnClickListener {
-            var location = Location("me")
+            try {
+                var location = Location("me");
+                var date = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Date());
+                var audioFile = ""
+                if (record_button.text == "Record") {
+                    var temporyTitleForButton = audioFileName.text.toString()
+                    audioFile = date.toString() + location.toString()
+                    var sd = File(audioDirPath + "/" + audioFile)
+                    record_button.text = "Recording";
+                    recorder.run(sd)
+                    mappingFile.appendText(temporyTitleForButton + "," + audioFile + "\n")
 
-            var message = "";
-            var data = ByteArray(bufferSize)
-            if (record_button.text == "Record"){
-
-                message+= "Starting Recording\n"
-                message += SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Date());
-                message += "\n" + location.latitude.toString() + "\n" + location.longitude.toString() + "\n"
-                record_button.text = "Recording";
-                audioRecorder.startRecording()
-
-                audioRecorder.read(data,0,bufferSize)
-                message+= data.toString()
-
-            } else {
-                record_button.text = "Record";
-                message+= "Stop Recording\n"
-                //mediaRecorder.stop()
-                //mediaRecorder.release()
+                } else {
+                    record_button.text = "Record";
+                    recorder.interrupt();
+                }
+            } catch (e: java.lang.Exception){
+                Log.d("myTag", e.toString());
             }
-            sd.appendText(message)
-            println(message)
 
         })
 

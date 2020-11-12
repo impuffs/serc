@@ -14,29 +14,56 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <Button
-        android:text="classify"
+        android:id="@+id/classify_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/classify_button" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp" android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/spinner"/>
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="classify"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <TextView
+        android:id="@+id/result_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:id="@+id/result_text" app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="16dp"
-        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp" android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@+id/classify_button"/>
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/classify_button" />
 
     <Button
         android:id="@+id/record_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="261dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="422dp"
         android:text="Record"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="261dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/audioFileName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:maxLength="255"
+        android:text="Enter a file name"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="131dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
