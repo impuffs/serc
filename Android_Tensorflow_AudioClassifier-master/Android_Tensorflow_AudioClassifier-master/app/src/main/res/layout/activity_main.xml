@@ -58,12 +58,16 @@
         android:id="@+id/audioFileName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="101dp"
+        android:layout_marginEnd="101dp"
+        android:layout_marginBottom="85dp"
         android:ems="10"
         android:inputType="text"
         android:maxLength="255"
         android:text="Enter a file name"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="131dp" />
+        app:layout_constraintBottom_toTopOf="@+id/record_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

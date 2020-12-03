@@ -54,10 +54,10 @@ class MainActivity : AppCompatActivity() {
             audioRecorder.read(data,0,bufferSize);
 
             filename.writeBytes(data);
-            if (x >= 3){
-                Log.d("myTag", "REMEMBER WE ONLY RAN 3 TIMES");
-                return;
-            }
+            //if (x >= 3){
+            //    Log.d("myTag", "REMEMBER WE ONLY RAN 3 TIMES");
+            //    return;
+            //}
             x = x + 1;
 
         }
