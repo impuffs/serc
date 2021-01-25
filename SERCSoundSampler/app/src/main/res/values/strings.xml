@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SERC Sound Sampler</string>
+    <string name="prompt_for_name">Enter a file name</string>
+</resources>
