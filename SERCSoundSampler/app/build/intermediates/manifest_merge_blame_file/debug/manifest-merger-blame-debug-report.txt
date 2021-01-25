@@ -6,65 +6,66 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="26"
-8-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml
+8-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="30" />
-9-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml
+9-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-11-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml:5:5-80
-11-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml:5:22-78
+11-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml:5:5-80
+11-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml:5:22-78
 12    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-12-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml:6:5-70
-12-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml:6:22-68
+12-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml:6:5-70
+12-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml:6:22-68
 13
 14    <application
-14-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml:8:5-27:19
+14-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml:8:5-27:19
 15        android:allowBackup="true"
-15-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml:9:9-35
+15-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml:9:9-35
 16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 16-->[androidx.core:core:1.3.2] /home/eric/.gradle/caches/transforms-2/files-2.1/176918aa7cebac1b3b039d47a35bea2a/core-1.3.2/AndroidManifest.xml:24:18-86
 17        android:debuggable="true"
 18        android:extractNativeLibs="false"
 19        android:icon="@mipmap/ic_launcher"
-19-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml:10:9-43
+19-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml:10:9-43
 20        android:label="@string/app_name"
-20-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml:11:9-41
+20-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml:11:9-41
 21        android:roundIcon="@mipmap/ic_launcher_round"
-21-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml:12:9-54
+21-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml:12:9-54
 22        android:supportsRtl="true"
-22-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml:13:9-35
-23        android:theme="@style/AppTheme" >
-23-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml:14:9-40
-24        <activity android:name="edu.mtu.sercsoundsampler.MainActivity" >
-24-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml:15:9-21:20
-24-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml:15:19-47
-25            <intent-filter>
-25-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml:16:13-20:29
-26                <action android:name="android.intent.action.MAIN" />
-26-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml:17:17-69
-26-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml:17:25-66
-27
-28                <category android:name="android.intent.category.LAUNCHER" />
-28-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml:19:17-77
-28-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml:19:27-74
-29            </intent-filter>
-30        </activity>
-31        <activity android:name="edu.mtu.sercsoundsampler.SampleActivity" >
-31-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml:22:9-26:20
-31-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml:22:19-49
-32            <intent-filter>
-32-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml:23:13-25:29
-33                <action android:name="android.intent.action.VIEW" />
-33-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml:24:17-69
-33-->/home/eric/git/SERCSoundSampler/app/src/main/AndroidManifest.xml:24:25-66
-34            </intent-filter>
-35        </activity>
-36        <activity
-36-->[com.karumi:dexter:6.2.2] /home/eric/.gradle/caches/transforms-2/files-2.1/efcf2d7121ac90b904c897ac0e1cdea9/jetified-dexter-6.2.2/AndroidManifest.xml:27:9-29:72
-37            android:name="com.karumi.dexter.DexterActivity"
-37-->[com.karumi:dexter:6.2.2] /home/eric/.gradle/caches/transforms-2/files-2.1/efcf2d7121ac90b904c897ac0e1cdea9/jetified-dexter-6.2.2/AndroidManifest.xml:28:13-60
-38            android:theme="@style/Dexter.Internal.Theme.Transparent" />
-38-->[com.karumi:dexter:6.2.2] /home/eric/.gradle/caches/transforms-2/files-2.1/efcf2d7121ac90b904c897ac0e1cdea9/jetified-dexter-6.2.2/AndroidManifest.xml:29:13-69
-39    </application>
-40
-41</manifest>
+22-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml:13:9-35
+23        android:testOnly="true"
+24        android:theme="@style/AppTheme" >
+24-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml:14:9-40
+25        <activity android:name="edu.mtu.sercsoundsampler.MainActivity" >
+25-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml:15:9-21:20
+25-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml:15:19-47
+26            <intent-filter>
+26-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml:16:13-20:29
+27                <action android:name="android.intent.action.MAIN" />
+27-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml:17:17-69
+27-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml:17:25-66
+28
+29                <category android:name="android.intent.category.LAUNCHER" />
+29-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml:19:17-77
+29-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml:19:27-74
+30            </intent-filter>
+31        </activity>
+32        <activity android:name="edu.mtu.sercsoundsampler.SampleActivity" >
+32-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml:22:9-26:20
+32-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml:22:19-49
+33            <intent-filter>
+33-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml:23:13-25:29
+34                <action android:name="android.intent.action.VIEW" />
+34-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml:24:17-69
+34-->/home/eric/git/serc/SERCSoundSampler/app/src/main/AndroidManifest.xml:24:25-66
+35            </intent-filter>
+36        </activity>
+37        <activity
+37-->[com.karumi:dexter:6.2.2] /home/eric/.gradle/caches/transforms-2/files-2.1/efcf2d7121ac90b904c897ac0e1cdea9/jetified-dexter-6.2.2/AndroidManifest.xml:27:9-29:72
+38            android:name="com.karumi.dexter.DexterActivity"
+38-->[com.karumi:dexter:6.2.2] /home/eric/.gradle/caches/transforms-2/files-2.1/efcf2d7121ac90b904c897ac0e1cdea9/jetified-dexter-6.2.2/AndroidManifest.xml:28:13-60
+39            android:theme="@style/Dexter.Internal.Theme.Transparent" />
+39-->[com.karumi:dexter:6.2.2] /home/eric/.gradle/caches/transforms-2/files-2.1/efcf2d7121ac90b904c897ac0e1cdea9/jetified-dexter-6.2.2/AndroidManifest.xml:29:13-69
+40    </application>
+41
+42</manifest>

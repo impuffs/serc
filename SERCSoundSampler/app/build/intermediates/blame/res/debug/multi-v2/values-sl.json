@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/eric/git/SERCSoundSampler/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sl/values-sl.xml",
+            "outputFile": "/home/eric/git/serc/SERCSoundSampler/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sl/values-sl.xml",
             "map": [
                 {
                     "source": "/home/eric/.gradle/caches/transforms-2/files-2.1/b9bf55ac491f79be4ecc3bf1bdb94334/appcompat-1.2.0/res/values-sl/values-sl.xml",
