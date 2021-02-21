@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/NoiseClassifier_Android_Tensorflow.iml" filepath="$PROJECT_DIR$/.idea/modules/NoiseClassifier_Android_Tensorflow.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NoiseClassifier_Android_Tensorflow.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NoiseClassifier_Android_Tensorflow.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/NoiseClassifier_Android_Tensorflow.iml" filepath="$PROJECT_DIR$/.idea/modules/NoiseClassifier_Android_Tensorflow.iml" group="NoiseClassifier_Android_Tensorflow" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="NoiseClassifier_Android_Tensorflow/app" />
     </modules>
   </component>
 </project>

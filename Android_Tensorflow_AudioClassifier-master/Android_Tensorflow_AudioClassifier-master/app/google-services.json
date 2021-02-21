@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "441440298770",
+    "project_id": "serc-mtu21",
+    "storage_bucket": "serc-mtu21.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441440298770:android:267b2a59b2e7a605eef5cb",
+        "android_client_info": {
+          "package_name": "com.tensorflow.android.noiseclassifier"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "441440298770-0rt4qbkh347htadqpe5hhofv10qrgv0j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDd2alyYj_TtC2LBbk7rcymh-BwH-G84H8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "441440298770-0rt4qbkh347htadqpe5hhofv10qrgv0j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
