@@ -48,6 +48,13 @@ dependencies {
     // Add the dependencies for any other desired Firebase products
     // https://firebase.google.com/docs/android/setup#available-libraries
 
+    // Declare the dependency for the Firebase ML model downloader library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-ml-modeldownloader'
+    // Also declare the dependency for the TensorFlow Lite library and specify its version
+    implementation 'org.tensorflow:tensorflow-lite:2.3.0'
+
+
     implementation 'org.tensorflow:tensorflow-lite:0.0.0-nightly'
     implementation('org.tensorflow:tensorflow-lite-support:0.0.0-nightly') { changing = true }
 }
